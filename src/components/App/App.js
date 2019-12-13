@@ -23,7 +23,10 @@ export default class App extends Component {
   };
 
 componentDidUpdate(prevProps, prevState) {
-  const {images} = this.state;
+  const {query, images} = this.state;
+  if (prevState.query !== query) {
+    this.fetchImages();
+  }
 
   if (prevState.images !== images) {
     window.scrollTo({
@@ -51,7 +54,7 @@ fetchImages = () => {
     })
     .catch(error => {
       this.setState({error});
-      toast.erroe('Failed to load');
+      toast.error('Failed to load');
     })
     .finally(() => {
       this.setState({isLoading: false});
