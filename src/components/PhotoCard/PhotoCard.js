@@ -31,9 +31,11 @@ const PhotoCard = ({ image, onClickImg}) => (
     </div>
   
     
-    <button type="button" className={styles.fullscreenButton}
+    <button type="button" 
+    className={styles.fullscreenButton}
     onClick={() => onClickImg(image.largeImageURL)}>
-      <i className="material-icons">zoom_out_map</i>
+     <i className="material-icons">zoom_out_map</i>
+          
     </button>
   </div> 
 
